@@ -1212,7 +1212,8 @@ impl Drop for Locker {
         v8__Locker__DESTRUCT(self);
         let should_dispose = isolate.get_annex().dispose_on_unlock;
         if should_dispose {
-          isolate.drop_annex();
+          // TODO: figure out how to avoid drop of v8::Isolate 
+          //isolate.drop_annex();
         }
       }
     }
