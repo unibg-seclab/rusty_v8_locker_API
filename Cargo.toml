@@ -105,6 +105,3 @@ name = "process"
 [[test]]
 name = "build"
 path = "build.rs"
-
-[workspace]
-members = ["examples/android"]

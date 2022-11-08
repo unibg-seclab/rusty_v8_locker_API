@@ -1,8 +1,8 @@
-error[E0277]: the trait bound `OwnedIsolate: v8::scope::param::NewEscapableHandleScope<'_, '_>` is not satisfied
+error[E0277]: the trait bound `Locker: v8::scope::param::NewEscapableHandleScope<'_, '_>` is not satisfied
    --> tests/compile_fail/handle_scope_escape_to_nowhere.rs:5:50
     |
 5   |   let mut _scope = v8::EscapableHandleScope::new(&mut isolate);
-    |                    ----------------------------- ^^^^^^^^^^^^ the trait `v8::scope::param::NewEscapableHandleScope<'_, '_>` is not implemented for `OwnedIsolate`
+    |                    ----------------------------- ^^^^^^^^^^^^ the trait `v8::scope::param::NewEscapableHandleScope<'_, '_>` is not implemented for `Locker`
     |                    |
     |                    required by a bound introduced by this call
     |
@@ -12,8 +12,8 @@ note: required by a bound in `EscapableHandleScope::<'s, 'e>::new`
     |   pub fn new<P: param::NewEscapableHandleScope<'s, 'e>>(
     |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ required by this bound in `EscapableHandleScope::<'s, 'e>::new`
 
-error[E0277]: the trait bound `OwnedIsolate: v8::scope::param::NewEscapableHandleScope<'_, '_>` is not satisfied
+error[E0277]: the trait bound `Locker: v8::scope::param::NewEscapableHandleScope<'_, '_>` is not satisfied
  --> tests/compile_fail/handle_scope_escape_to_nowhere.rs:5:20
   |
 5 |   let mut _scope = v8::EscapableHandleScope::new(&mut isolate);
-  |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ the trait `v8::scope::param::NewEscapableHandleScope<'_, '_>` is not implemented for `OwnedIsolate`
+  |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ the trait `v8::scope::param::NewEscapableHandleScope<'_, '_>` is not implemented for `Locker`
