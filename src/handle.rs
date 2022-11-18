@@ -981,8 +981,10 @@ impl FinalizerMap {
     self.map.insert(id, finalizer);
     id
   }
-
+       
+  /* TODO: setup better destroyer
   pub(crate) fn is_empty(&self) -> bool {
     self.map.is_empty()
   }
+  */
 }

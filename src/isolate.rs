@@ -479,15 +479,17 @@ impl Isolate {
     let annex_ptr = self.get_annex();
     let annex_arc = unsafe { Arc::from_raw(annex_ptr) };
     let weak = Arc::downgrade(&annex_arc);
-    Arc::into_raw(annex_arc);
+    let _ = Arc::into_raw(annex_arc);
     weak
   }
-
+  
+  /* TODO: setup better destroyer
   fn drop_annex(&self) {
     let annex_ptr = self.get_annex();
     let annex_arc = unsafe { Arc::from_raw(annex_ptr) };
     drop(annex_arc);
   }
+  */
 
   /// Associate embedder-specific data with the isolate. `slot` has to be
   /// between 0 and `Isolate::get_number_of_data_slots()`.
